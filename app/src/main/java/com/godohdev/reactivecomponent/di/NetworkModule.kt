@@ -13,7 +13,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Logger
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
@@ -51,7 +50,6 @@ inline fun <reified T> apiService(okHttpClient: OkHttpClient) : T {
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(MoshiConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
     return retrofit.create(T::class.java)
