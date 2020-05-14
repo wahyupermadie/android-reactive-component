@@ -1,7 +1,6 @@
 package com.godohdev.reactivecomponent
 
-import org.junit.Test
-
+import org.junit.*
 import org.junit.Assert.*
 
 /**

@@ -1,16 +1,12 @@
 package com.godohdev.reactivecomponent.di
 
 import android.os.SystemClock
-import android.util.Log
-import com.godohdev.reactivecomponent.BuildConfig
 import com.godohdev.reactivecomponent.BuildConfig.BASE_URL
 import com.godohdev.reactivecomponent.data.network.ApiService
-import com.squareup.moshi.Moshi
 import okhttp3.Dispatcher
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.logging.HttpLoggingInterceptor.Logger
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
