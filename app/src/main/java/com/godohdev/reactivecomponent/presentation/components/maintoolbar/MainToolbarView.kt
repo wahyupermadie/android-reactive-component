@@ -20,7 +20,7 @@ class MainToolbarView constructor(
     private val listener: MainToolbarListener
 ) : UIView(viewGroup) {
 
-    private val view: View = LayoutInflater
+    val view: View = LayoutInflater
         .from(viewContainer.context)
         .inflate(R.layout.component_toolbar, null)
         .findViewById(R.id.toolbar)
