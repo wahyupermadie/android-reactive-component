@@ -5,7 +5,6 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.SendChannel
@@ -68,7 +67,7 @@ class EventBusFactory private constructor(
      * @param clazz is the Event Class
      * @param event is the instance of the Event to be sent
      */
-    @ExperimentalCoroutinesApi
+
     suspend fun <T : ComponentEvent> emit(clazz: Class<T>, event: T) {
         val channel = if (map[clazz] != null) map[clazz] as SendChannel<T> else create(clazz)
         channel.send(event)
@@ -81,8 +80,6 @@ class EventBusFactory private constructor(
      *
      *  @param clazz is the class of the event type used by this channel
      */
-    @FlowPreview
-    @ExperimentalCoroutinesApi
     fun <T : ComponentEvent> getSafeManagedFlow(clazz: Class<T>): Flow<T> {
         return (if (map[clazz] != null) map[clazz] as BroadcastChannel<T> else create(clazz)).asFlow()
     }
